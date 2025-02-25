@@ -13,7 +13,6 @@ class BookModelTest(TestCase):
         )
 
     def test_book_creation(self):
-        """Ensure book is created correctly."""
         book = Book.objects.get(title="Test Book")
         self.assertEqual(book.author, "John Doe")
         self.assertEqual(book.isbn, "1234567890")
@@ -29,6 +28,5 @@ class BookAPITest(TestCase):
         }
 
     def test_create_book(self):
-        """Ensure we can create a book via API."""
         response = self.client.post('/api/books/', self.book_data, content_type="application/json")
         self.assertEqual(response.status_code, 201)
